@@ -1,0 +1,11 @@
+<h1>{{ title }} ({{ count }})</h1>
+<p *ngIf="count % 2 === 0">{{ text }}</p>
+
+<ul>
+    <li *ngFor="let user of users; trackBy: trackByUserId">
+        {{ user.name }} {{ user.surname }}
+    </li>
+</ul>
+
+<button (click)="onClick()">Odśwież dane...</button>
+<button (click)="handleButtonClick()">Odśwież dane (Event Emitter)...</button>
