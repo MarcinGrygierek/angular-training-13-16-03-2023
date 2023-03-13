@@ -1,0 +1,1 @@
+console.log(`Ala ma ${10 + 20} kotów`);
