@@ -6,7 +6,7 @@ import { ChangeTaskStatusEvent, SingleTask, TaskStatus } from '../types/task';
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TasksComponent {
   tasks: SingleTask[] = [];

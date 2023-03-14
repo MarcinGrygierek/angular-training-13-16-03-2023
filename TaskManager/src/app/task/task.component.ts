@@ -1,13 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { ChangeTaskStatusEvent, SingleTask, TaskStatus } from '../types/task';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit, OnDestroy {
 
   @Input()
   task!: SingleTask;
@@ -17,6 +17,15 @@ export class TaskComponent {
 
   @Output()
   onDelete = new EventEmitter<string>();
+
+  private interval!: NodeJS.Timer;
+  public time: number = 0;
+
+  ngOnInit() {
+    this.interval = setInterval(() => {
+      this.time++;
+    }, 1000);
+  }
 
   formatStatus(status: TaskStatus) {
     switch(status) {
@@ -65,5 +74,9 @@ export class TaskComponent {
 
   delete() {
     this.onDelete.emit(this.task.id);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 }
