@@ -8,6 +8,7 @@ export interface SingleTask {
     id: string;
     name: string;
     status: TaskStatus;
+    hidden: boolean;
 }
 
 export interface ChangeTaskStatusEvent {

@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChangeTaskStatusEvent, SingleTask, TaskStatus } from '../types/task';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  styleUrls: ['./task.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskComponent {
 
@@ -42,6 +43,7 @@ export class TaskComponent {
         taskId: this.task.id,
         newStatus: TaskStatus.New
       })
+      // this.task.status = TaskStatus.New;
   }
 
   changeToInProgress() {
@@ -49,6 +51,7 @@ export class TaskComponent {
       taskId: this.task.id,
       newStatus: TaskStatus.InProgress
     })
+    // this.task.status = TaskStatus.InProgress;
   }
 
   changeToDone() {
@@ -56,7 +59,9 @@ export class TaskComponent {
       taskId: this.task.id,
       newStatus: TaskStatus.Done
     })
+    // this.task.status = TaskStatus.Done;
   }
+
 
   delete() {
     this.onDelete.emit(this.task.id);

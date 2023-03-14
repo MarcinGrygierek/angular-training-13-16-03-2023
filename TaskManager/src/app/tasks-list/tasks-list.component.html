@@ -1,0 +1,10 @@
+<ul>
+    <ng-container *ngFor="let task of tasks; trackBy: trackById">
+    <app-task 
+        *ngIf="task.hidden === false"
+        [task]="task"
+        (onStatusChange)="changeStatus($event)"
+        (onDelete)="deleteTask($event)"
+        ></app-task>
+    </ng-container>
+</ul>

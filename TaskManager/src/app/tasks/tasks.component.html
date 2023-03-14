@@ -1,9 +1,8 @@
-<h1>Tasks Manager</h1>
-<ul>
-    <app-task *ngFor="let task of tasks; trackBy: trackById" 
-    [task]="task"
-    (onStatusChange)="changeStatus($event)"
-    (onDelete)="deleteTask($event)"
-    ></app-task>
-</ul>
-<button (click)="addNewTask()">Add new task</button>
+<app-page-container title="Task Manager">
+    <app-tasks-list 
+        [tasks]="tasks"
+        (onStatusChange)="changeStatus($event)"
+        (onDelete)="deleteTask($event)"
+    ></app-tasks-list>
+    <button (click)="addNewTask()">Add new task</button>
+</app-page-container>
