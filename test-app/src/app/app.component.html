@@ -1,9 +1,14 @@
 <!-- <app-users title="Użytkownicy" [count]="usersCount" [onClick]="increaseUsersCount" (onButtonClick)="increaseUsersCount()"></app-users> -->
 
-<app-foo 
-    [value]="value"
-    [items]="items" 
-    *ngIf="isVisible"
- ></app-foo>
+<app-smart-div title="Lorem ipsum">
+    <p header>
+        Subtitle of the page
+    </p>
+    <app-foo 
+        [value]="value"
+        [items]="items" 
+        *ngIf="isVisible"
+    ></app-foo>
 
- <button (click)="addToItems()">Add new value</button>
+    <button (click)="addToItems()">Add new value</button>
+</app-smart-div>
