@@ -1,6 +1,6 @@
 <!-- <app-users title="Użytkownicy" [count]="usersCount" [onClick]="increaseUsersCount" (onButtonClick)="increaseUsersCount()"></app-users> -->
 
-<app-smart-div title="Lorem ipsum">
+<!-- <app-smart-div title="Lorem ipsum">
     <p header>
         Subtitle of the page
     </p>
@@ -11,4 +11,30 @@
     ></app-foo>
 
     <button (click)="addToItems()">Add new value</button>
-</app-smart-div>
+</app-smart-div> -->
+
+<!-- <app-not-smart-div>
+    <app-foo 
+        [value]="value"
+        [items]="items" 
+        *ngIf="isVisible"
+    ></app-foo>
+</app-not-smart-div> -->
+
+<ng-template #template1>
+    <h2>Template h1</h2>
+    <app-foo 
+        [value]="value"
+        [items]="items" 
+        *ngIf="isVisible"
+    ></app-foo>
+</ng-template>
+
+<ng-template #template2>
+    <h2>Template 2</h2>
+    <p>Not working</p>
+</ng-template>
+
+<div *ngIf="isVisible; then template1 else template2"></div>
+
+<div *ngTemplateOutlet="template1"></div>

@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { FooComponent } from './foo/foo.component';
 import { SmartDivComponent } from './smart-div/smart-div.component';
+import { NotSmartDivComponent } from './not-smart-div/not-smart-div.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     FooComponent,
-    SmartDivComponent
+    SmartDivComponent,
+    NotSmartDivComponent
   ],
   imports: [
     BrowserModule
