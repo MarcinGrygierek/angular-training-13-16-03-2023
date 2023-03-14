@@ -29,13 +29,21 @@ export class TasksComponent {
   }
 
   changeStatus(event: ChangeTaskStatusEvent) {
-    this.tasks = this.tasks.map(task => {
-      if(task.id === event.taskId) return {
-        ...task,
-        status: event.newStatus
-      }
-      return task;
-    })
+    // Wersja niemutująca
+    // this.tasks = this.tasks.map(task => {
+    //   if(task.id === event.taskId) return {
+    //     ...task,
+    //     status: event.newStatus
+    //   }
+    //   return task;
+    // })
+
+    // wersja mutująca
+    const taskToChange = this.tasks.find(task => task.id === event.taskId);
+
+    if(!taskToChange) return;
+
+    taskToChange.status = event.newStatus;
   }
 
   deleteTask(taskId: string) {
