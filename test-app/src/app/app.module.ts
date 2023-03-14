@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { FooComponent } from './foo/foo.component';
 import { SmartDivComponent } from './smart-div/smart-div.component';
 import { NotSmartDivComponent } from './not-smart-div/not-smart-div.component';
+import { SimpleComponent } from './simple/simple.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { NotSmartDivComponent } from './not-smart-div/not-smart-div.component';
     UsersComponent,
     FooComponent,
     SmartDivComponent,
-    NotSmartDivComponent
+    NotSmartDivComponent,
+    SimpleComponent
   ],
   imports: [
     BrowserModule

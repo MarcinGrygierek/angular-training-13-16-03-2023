@@ -20,7 +20,7 @@
         *ngIf="isVisible"
     ></app-foo>
 </app-not-smart-div> -->
-
+<!-- 
 <ng-template #template1>
     <h2>Template h1</h2>
     <app-foo 
@@ -37,4 +37,18 @@
 
 <div *ngIf="isVisible; then template1 else template2"></div>
 
-<div *ngTemplateOutlet="template1"></div>
+<div *ngTemplateOutlet="template1"></div> -->
+
+<div #myDiv>
+    Lorem ipsum
+</div>
+
+{{ myDiv.innerText }}
+
+<input type="text" #myInput>
+<button (click)="myInput.focus()">Focus</button>
+<p>Ilość znaków: {{ myInput.value.length }}</p>
+
+
+<app-simple text="lorem ipsum" #lorem></app-simple>
+{{ lorem.secret }}
