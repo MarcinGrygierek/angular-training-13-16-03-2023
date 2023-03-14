@@ -1,0 +1,8 @@
+<li>
+    <h2>{{ task.name }}</h2>
+    <p>{{ formatStatus(task.status) }}</p>
+    <button (click)="changeToNew()" [disabled]="isNew()">Nowe</button>
+    <button (click)="changeToInProgress()" [disabled]="isInProgress()">W trakcie</button>
+    <button (click)="changeToDone()" [disabled]="isDone()">Zakończone</button>
+    <button (click)="delete()">Usuń</button>
+</li>
