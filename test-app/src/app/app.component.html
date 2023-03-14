@@ -1,1 +1,9 @@
-<app-users title="Użytkownicy" [count]="usersCount" [onClick]="increaseUsersCount" (onButtonClick)="increaseUsersCount()"></app-users>
+<!-- <app-users title="Użytkownicy" [count]="usersCount" [onClick]="increaseUsersCount" (onButtonClick)="increaseUsersCount()"></app-users> -->
+
+<app-foo 
+    [value]="value"
+    [items]="items" 
+    *ngIf="isVisible"
+ ></app-foo>
+
+ <button (click)="addToItems()">Add new value</button>

@@ -4,6 +4,7 @@ interface User {
   name: string;
   surname: string;
   id: number;
+  hidden: boolean;
 }
 
 
@@ -31,12 +32,14 @@ export class UsersComponent implements OnInit {
     {
       id: 1,
       name: "Marian",
-      surname: "Kowalski"
+      surname: "Kowalski",
+      hidden: true
     },
     {
       id:2 ,
       name: "Marianna",
-      surname: "Kowalczyk"
+      surname: "Kowalczyk",
+      hidden: false
     }
   ]
 

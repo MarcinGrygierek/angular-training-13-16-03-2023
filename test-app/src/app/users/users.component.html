@@ -2,9 +2,11 @@
 <p *ngIf="count % 2 === 0">{{ text }}</p>
 
 <ul>
-    <li *ngFor="let user of users; trackBy: trackByUserId">
-        {{ user.name }} {{ user.surname }}
-    </li>
+    <ng-container *ngFor="let user of users; trackBy: trackByUserId">
+        <li *ngIf="user.hidden === false">
+            {{ user.name }} {{ user.surname }}
+        </li>
+    </ng-container>
 </ul>
 
 <button (click)="onClick()">Odśwież dane...</button>
