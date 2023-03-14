@@ -1,0 +1,13 @@
+<form #form="ngForm" (ngSubmit)="handleSubmit($event)">
+    <div>
+        <input type="text" name="login" [(ngModel)]="data.login" required minlength="3" #login="ngModel">
+        <p *ngIf="login.touched && login.errors && login.errors['required']">Pole jest wymagane!</p>
+        <p *ngIf="login.touched && login.errors && login.errors['minlength']">Wartość jest za krótka!</p>
+    </div>
+    <div>
+        <input type="password" name="password" [(ngModel)]="data.password" required minlength="3" #password="ngModel">
+        <p *ngIf="password.touched && password.errors && password.errors['required']">Pole jest wymagane!</p>
+        <p *ngIf="password.touched && password.errors && password.errors['minlength']">Wartość jest za krótka!</p>
+    </div>
+    <button [disabled]="form.invalid">Wyślij</button>
+</form>

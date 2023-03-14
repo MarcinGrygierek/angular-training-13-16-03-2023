@@ -10,6 +10,9 @@ import { SimpleComponent } from './simple/simple.component';
 import { ViewContentChildrenTestComponent } from './view-content-children-test/view-content-children-test.component';
 import { RandomNumberComponent } from './random-number/random-number.component';
 import { NumbersInfoComponent } from './numbers-info/numbers-info.component';
+import { TemplateFormTestComponent } from './template-form-test/template-form-test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormTestComponent } from './reactive-form-test/reactive-form-test.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { NumbersInfoComponent } from './numbers-info/numbers-info.component';
     SimpleComponent,
     ViewContentChildrenTestComponent,
     RandomNumberComponent,
-    NumbersInfoComponent
+    NumbersInfoComponent,
+    TemplateFormTestComponent,
+    ReactiveFormTestComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

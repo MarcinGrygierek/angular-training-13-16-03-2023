@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div>
+        <input formControlName="login" type="text" name="text">
+        <p *ngIf="hasError('login', 'required')">Pole jest wymagane!</p>
+        <p *ngIf="hasError('login', 'minlength')">Wartość jest zbyt krótka!</p>
+    </div>
+    <div>
+        <input formControlName="password" type="password" name="password">
+        <p *ngIf="hasError('password', 'required')">Pole jest wymagane!</p>
+        <p *ngIf="hasError('password', 'minlength')">Wartość jest zbyt krótka!</p>
+    </div>
+    <button [disabled]="form.invalid">Wyślij</button>
+    <button type="button" (click)="clearLogin()">Clear login</button>
+</form>
