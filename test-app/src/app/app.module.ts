@@ -14,6 +14,7 @@ import { TemplateFormTestComponent } from './template-form-test/template-form-te
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormTestComponent } from './reactive-form-test/reactive-form-test.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CurrencyPipe } from './currency.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     RandomNumberComponent,
     NumbersInfoComponent,
     TemplateFormTestComponent,
-    ReactiveFormTestComponent
+    ReactiveFormTestComponent,
+    CurrencyPipe
   ],
   imports: [
     BrowserModule,

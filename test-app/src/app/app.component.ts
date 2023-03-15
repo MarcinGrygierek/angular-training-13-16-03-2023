@@ -14,6 +14,17 @@ export class AppComponent {
   isVisible: boolean = true;
   items: number[] = [];
 
+  obj = {
+    a: 10,
+    b: 20,
+    c: {
+      d: 123,
+      e: 1235
+    }
+  }
+
+  price = 1234.4;
+
   addToItems() {
     // this.items.push(Math.round(Math.random() * 1000))
     this.items = [...this.items, Math.round(Math.random() * 1000)];
