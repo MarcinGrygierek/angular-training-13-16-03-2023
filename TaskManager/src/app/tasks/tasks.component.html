@@ -4,5 +4,5 @@
         (onStatusChange)="changeStatus($event)"
         (onDelete)="deleteTask($event)"
     ></app-tasks-list>
-    <button (click)="addNewTask()">Add new task</button>
+    <app-task-form (onNewTask)="addNewTask($event)"></app-task-form>
 </app-page-container>

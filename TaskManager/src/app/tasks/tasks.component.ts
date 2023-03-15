@@ -11,10 +11,10 @@ import { ChangeTaskStatusEvent, SingleTask, TaskStatus } from '../types/task';
 export class TasksComponent {
   tasks: SingleTask[] = [];
 
-  addNewTask() {
+  addNewTask(taskName: string) {
     const newTask: SingleTask = {
       id: v4(),
-      name: 'Lorem Ipsum',
+      name: taskName,
       status: TaskStatus.New,
       hidden: false
     }
