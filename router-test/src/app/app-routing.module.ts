@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleComponent } from './article/article.component';
+import { AuthGuard } from './auth.guard';
 import { BlogComponent } from './blog/blog.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +19,7 @@ const routes: Routes = [
     ]
   },
   { 
-    path: 'pricing', component: PricingComponent
+    path: 'pricing', component: PricingComponent, canActivate: [AuthGuard]
   },
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
