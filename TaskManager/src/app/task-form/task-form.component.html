@@ -1,7 +1,7 @@
 <h2>Add new task</h2>
 <form [formGroup]="form" (ngSubmit)="handleSubmit()">
     <div>
-        <label for="id">Task name</label>
+        <label for="name">Task name</label>
         <input id="name" type="text" formControlName="name">
     </div>
     <button type="submit">Add</button>
