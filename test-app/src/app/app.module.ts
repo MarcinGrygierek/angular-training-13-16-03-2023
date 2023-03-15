@@ -13,6 +13,7 @@ import { NumbersInfoComponent } from './numbers-info/numbers-info.component';
 import { TemplateFormTestComponent } from './template-form-test/template-form-test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormTestComponent } from './reactive-form-test/reactive-form-test.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormTestComponent } from './reactive-form-test/reactive-form-te
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],
