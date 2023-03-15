@@ -1,8 +1,0 @@
-<app-page-container title="Task Manager">
-    <app-tasks-list 
-        [tasks]="tasks"
-        (onStatusChange)="changeStatus($event)"
-        (onDelete)="deleteTask($event)"
-    ></app-tasks-list>
-    <app-task-form (onNewTask)="addNewTask($event)"></app-task-form>
-</app-page-container>
