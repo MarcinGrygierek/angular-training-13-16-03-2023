@@ -1,0 +1,19 @@
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/pricing">Pricing</a></li>
+      <li><a routerLink="/blog">Blog</a></li>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <app-button label="Click" [onClick]="handleButtonClick"></app-button>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  Copyright @ Lorem Ipsum inc.
+</footer>
