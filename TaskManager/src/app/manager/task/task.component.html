@@ -6,6 +6,6 @@
     <button (click)="changeToDone()" [disabled]="isDone()">Zakończone</button>
     <button (click)="delete()">Usuń</button>
     <small>
-        {{ time }}s
+        {{ time | time }}
     </small>
 </li>

@@ -1,4 +1,4 @@
-<p>Łączny czas: {{ totalTime }}s</p>
+<p>Łączny czas: {{ totalTime | time }}</p>
 <ul>
     <ng-container *ngFor="let task of tasks; trackBy: trackById">
     <app-task 
