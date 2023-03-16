@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { delay, endWith, filter, from, interval, map, merge, mergeMap, Observable, of, scan, startWith, take, takeUntil, timer } from 'rxjs';
+import { delay, endWith, filter, from, interval, map, merge, mergeMap, Observable, of, scan, startWith, take, takeUntil, tap, timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,22 @@ export class AppComponent implements OnInit {
   // this.handleMultiObservable();
   // this.handleOfAndFrom();
     // this.handleTakeTakeUntil();
-    this.handleFakeAPI();
+    // this.handleFakeAPI();
+    this.handleAges();
+  }
+
+  handleAges() {
+    const years = [1993, 2005, 1998, 1978, 2010, 2000];
+    // from(years)
+    of(...years)
+    .pipe(
+      map(year => new Date().getFullYear() - year),
+      tap(age => console.log(`DEBUG: ${age}`)),
+      filter(age => age >= 18)
+    )
+    .subscribe(val => {
+      console.log(val);
+    })
   }
 
   handleFakeAPI() {
