@@ -1,4 +1,4 @@
-<p>{{ secret }}</p>
+<p>{{ secret }} {{ random | async }}</p>
 <ul>
-    <li *ngFor="let user of users">{{ user }}</li>
+    <li *ngFor="let user of users | async">{{ user }}</li>
 </ul>
