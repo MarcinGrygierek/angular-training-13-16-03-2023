@@ -2,7 +2,8 @@
 <app-users></app-users>
 <app-users></app-users>
 <app-users></app-users>
-<app-summary></app-summary>
+<app-summary *ngIf="isVisible"></app-summary>
+<button (click)="toggleSummary()">Show/Hide summary</button>
 <app-user-form></app-user-form>
 <p>
     Ostatnia aktualizacja danych: {{ version | async | date:'dd.MM.yyyy HH:mm:ss' }}

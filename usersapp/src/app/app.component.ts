@@ -13,9 +13,14 @@ export class AppComponent implements OnInit {
   }
 
   version!: Observable<Date>;
+  isVisible = true;
 
   ngOnInit(): void {
     this.usersService.fetchUsers();
     this.version = this.usersService.version$;
+  }
+
+  toggleSummary() {
+    this.isVisible = !this.isVisible;
   }
 }
