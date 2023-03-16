@@ -1,5 +1,5 @@
 <p>Łączny czas: {{ totalTime | time }}</p>
-<ul>
+<ul data-test-id="tasks-list">
     <ng-container *ngFor="let task of tasks | async; trackBy: trackById">
         <app-task 
             *ngIf="task.hidden === false"

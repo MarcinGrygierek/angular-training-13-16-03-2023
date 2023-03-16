@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/tasks.service';
-import { TaskStatus } from '../types/task';
+import { SingleTask, TaskStatus } from '../types/task';
 
 @Component({
   selector: 'app-tasks-summary',
@@ -17,12 +17,16 @@ export class TasksSummaryComponent {
 
   constructor(private tasksService: TasksService) { 
     this.tasksService.tasks$.subscribe(newTasks => {
-      this.tasksTotal = newTasks.length;
-      this.tasksNew = newTasks.filter(task => !task.hidden && task.status === TaskStatus.New).length;
-      this.tasksInProgress = newTasks.filter(task => !task.hidden && task.status === TaskStatus.InProgress).length;
-      this.tasksDone = newTasks.filter(task => !task.hidden &&  task.status === TaskStatus.Done).length;
-      this.tasksDeleted = newTasks.filter(task => task.hidden === true).length;
+      this.getTasksSummary(newTasks);
     })
+  }
+
+  getTasksSummary(tasks: SingleTask[]) {
+    this.tasksTotal = tasks.length;
+    this.tasksNew = tasks.filter(task => !task.hidden && task.status === TaskStatus.New).length;
+    this.tasksInProgress = tasks.filter(task => !task.hidden && task.status === TaskStatus.InProgress).length;
+    this.tasksDone = tasks.filter(task => !task.hidden &&  task.status === TaskStatus.Done).length;
+    this.tasksDeleted = tasks.filter(task => task.hidden === true).length;
   }
 
 }
