@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
     randomValue = Math.round(Math.random() * 1000)
-    private users = new BehaviorSubject<string[]>([]);
+    private users = new BehaviorSubject<string[]>(['Jan', 'Tomasz']);
     public users$: Observable<string[]>;
+
+    public test = new ReplaySubject<string[]>(2, 2500)
 
     private version = new Subject<Date>();
     public version$: Observable<Date>;
@@ -15,6 +17,12 @@ export class UsersService {
     constructor() {
       this.users$ = this.users.asObservable();
       this.version$ = this.version.asObservable();
+      this.test.next(['Jan']);
+      this.test.next(['Adam']);
+      this.test.next(['Jan', 'Adam']);
+      setTimeout(() => {
+        this.test.next(['Adam', 'Łukasz'])
+      }, 1500)
      }
 
     addUser(name: string) {

@@ -10,15 +10,18 @@ import { UsersService } from './users.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService) {
+    this.secret = this.usersService.getRandomValue();
+    this.users = this.usersService.users$;
+   }
 
   users!: Observable<string[]>;
   secret: number = 0;
   random!: Observable<number>;
 
  ngOnInit(): void {
-  this.secret = this.usersService.getRandomValue();
-  this.users = this.usersService.users$;
+  console.log('USERS init')
+
 
   // this.random = new Observable(observer => {
   //   setInterval(() => {

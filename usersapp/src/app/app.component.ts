@@ -16,8 +16,14 @@ export class AppComponent implements OnInit {
   isVisible = true;
 
   ngOnInit(): void {
-    this.usersService.fetchUsers();
+    // this.usersService.fetchUsers();
     this.version = this.usersService.version$;
+
+    setTimeout(() => {
+      this.usersService.test.subscribe(val => {
+        console.log('Reply subject', val);
+      })
+    }, 1000)
   }
 
   toggleSummary() {
