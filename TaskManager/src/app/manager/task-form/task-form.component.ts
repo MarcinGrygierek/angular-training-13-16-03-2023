@@ -1,16 +1,15 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { TasksService } from 'src/app/tasks.service';
 
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.scss']
+  styleUrls: ['./task-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskFormComponent {
-  @Output()
-  onNewTask = new EventEmitter<string>();
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private tasksService: TasksService) { }
 
   form = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]]
@@ -20,7 +19,7 @@ export class TaskFormComponent {
     const taskName = this.form.value.name;
 
     if(taskName)
-      this.onNewTask.emit(taskName);
+      this.tasksService.addNewTask(taskName);
 
     this.form.reset();
   }

@@ -1,11 +1,9 @@
 <p>Łączny czas: {{ totalTime | time }}</p>
 <ul>
-    <ng-container *ngFor="let task of tasks; trackBy: trackById">
-    <app-task 
-        *ngIf="task.hidden === false"
-        [task]="task"
-        (onStatusChange)="changeStatus($event)"
-        (onDelete)="deleteTask($event)"
+    <ng-container *ngFor="let task of tasks | async; trackBy: trackById">
+        <app-task 
+            *ngIf="task.hidden === false"
+            [task]="task"
         ></app-task>
     </ng-container>
 </ul>

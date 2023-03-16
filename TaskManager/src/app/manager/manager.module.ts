@@ -9,6 +9,7 @@ import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TasksSummaryComponent } from './tasks-summary/tasks-summary.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TaskComponent,
     TasksComponent,
     TasksListComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    TasksSummaryComponent
   ],
   imports: [
     CommonModule,

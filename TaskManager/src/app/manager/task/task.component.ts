@@ -1,30 +1,25 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Input, Output, OnDestroy } from '@angular/core';
-import { ChangeTaskStatusEvent, SingleTask, TaskStatus } from '../types/task';
+import { ChangeDetectionStrategy, Component, OnInit, Input } from '@angular/core';
+import { interval, Observable, Subscription } from 'rxjs';
+import { TasksService } from 'src/app/tasks.service';
+import { SingleTask, TaskStatus } from '../types/task';
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskComponent implements OnInit, OnDestroy {
+export class TaskComponent implements OnInit {
 
   @Input()
   task!: SingleTask;
 
-  @Output()
-  onStatusChange = new EventEmitter<ChangeTaskStatusEvent>();
+  constructor(private tasksService: TasksService) {}
 
-  @Output()
-  onDelete = new EventEmitter<string>();
-
-  private interval!: NodeJS.Timer;
-  public time: number = 0;
+  public time!: Observable<number>;
 
   ngOnInit() {
-    this.interval = setInterval(() => {
-      this.time++;
-    }, 1000);
+    this.time = interval(1000);
   }
 
   formatStatus(status: TaskStatus) {
@@ -48,35 +43,19 @@ export class TaskComponent implements OnInit, OnDestroy {
   }
 
   changeToNew() {
-      this.onStatusChange.emit({
-        taskId: this.task.id,
-        newStatus: TaskStatus.New
-      })
-      // this.task.status = TaskStatus.New;
+    this.tasksService.changeStatus(this.task.id, TaskStatus.New);
   }
 
   changeToInProgress() {
-    this.onStatusChange.emit({
-      taskId: this.task.id,
-      newStatus: TaskStatus.InProgress
-    })
-    // this.task.status = TaskStatus.InProgress;
+    this.tasksService.changeStatus(this.task.id, TaskStatus.InProgress);
   }
 
   changeToDone() {
-    this.onStatusChange.emit({
-      taskId: this.task.id,
-      newStatus: TaskStatus.Done
-    })
-    // this.task.status = TaskStatus.Done;
+    this.tasksService.changeStatus(this.task.id, TaskStatus.Done);
   }
 
 
   delete() {
-    this.onDelete.emit(this.task.id);
-  }
-
-  ngOnDestroy(): void {
-    clearInterval(this.interval);
+    this.tasksService.deleteTask(this.task.id);
   }
 }
