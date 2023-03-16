@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UsersService } from './users/users.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class AppComponent implements OnInit {
    
   }
 
+  version!: Observable<Date>;
+
   ngOnInit(): void {
     this.usersService.fetchUsers();
+    this.version = this.usersService.version$;
   }
 }
